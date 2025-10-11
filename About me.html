@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me | Cyber-Spider</title>
+  <link rel="icon" type="image/png" href="Icons/tarantula.png">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Cairo', sans-serif;
+      background: radial-gradient(circle at center, #020611, #000);
+      color: #fff;
+      overflow-x: hidden;
+      height: 100vh;
+    }
+    .animated-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: repeating-linear-gradient(
+        45deg,
+        rgba(0, 255, 255, 0.05) 0,
+        rgba(0, 255, 255, 0.05) 2px,
+        transparent 2px,
+        transparent 10px
+      );
+      animation: bgMove 20s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes bgMove {
+      from { background-position: 0 0; }
+      to { background-position: 1000px 1000px; }
+    }
+    .about-container {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      margin: 80px auto;
+      background: rgba(255, 255, 255, 0.05);
+      border: 2px solid rgba(0, 255, 255, 0.3);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+      animation: fadeIn 1.5s ease forwards;
+      backdrop-filter: blur(10px);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .about-container h1 {
+      text-align: center;
+      font-size: 36px;
+      color: #00ffff;
+      margin-bottom: 20px;
+      text-shadow: 0 0 20px #00ffff;
+      animation: glowText 3s infinite alternate;
+    }
+
+    @keyframes glowText {
+      from { text-shadow: 0 0 15px #00ffff; }
+      to { text-shadow: 0 0 35px #00ffff; }
+    }
+
+    .about-container p {
+      font-size: 18px;
+      line-height: 1.8;
+      text-align: justify;
+      color: #ccc;
+    }
+
+    .about-img {
+      display: flex;
+      justify-content: center;
+      margin: 30px 0;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .about-img img {
+      width: 180px;
+      height: auto;
+      border-radius: 50%;
+      border: 3px solid #00ffff;
+      box-shadow: 0 0 30px #00ffff;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .about-img img:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 50px #00ffff;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      background: transparent;
+      border: 2px solid #00ffff;
+      color: #00ffff;
+      padding: 12px 25px;
+      border-radius: 10px;
+      font-size: 16px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+    }
+
+    .btn:hover {
+      background: #00ffff;
+      color: #000;
+      transform: scale(1.05);
+      box-shadow: 0 0 25px #00ffff, 0 0 50px rgba(0,255,255,0.4);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #888;
+      position: relative;
+      z-index: 2;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .about-container {
+        margin: 40px 10px;
+        padding: 25px;
+      }
+
+      .about-container h1 {
+        font-size: 28px;
+      }
+
+      .about-container p {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="animated-bg"></div>
+
+  <section class="about-container">
+    <h1>من أنا؟</h1>
+    <div class="about-img">
+      <img src="Icons/about me.png" alt="Cyber Spider">
+    </div>
+    <p>
+      أنا باحث ومطور شغوف بعالم الأمن السيبراني، أؤمن بأن المعرفة هي أقوى سلاح يمكن امتلاكه.  
+      بدأت رحلتي في البرمجة منذ سنوات، باحثًا عن الفهم الحقيقي لما وراء الأكواد، والآن أعمل على مشاريع تهدف إلى بناء مجتمع واعٍ وقوي في مجال التقنية والأمن المعلوماتي.
+    </p>
+    <p>
+      من خلال مشروع <b>Cyber-Spider</b>، أهدف إلى إنشاء مجتمع يربط المبدعين والمهووسين بالتقنية،  
+      حيث نتبادل الخبرات، نتعلم من بعضنا، ونخترق الحدود الفكرية لاختراع المستقبل.
+    </p>
+
+    <div class="buttons">
+      <a href="index.html" class="btn">🏠 الصفحة الرئيسية</a>
+      <a href="Contacts.html" class="btn">📩 تواصل معي</a>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Cyber-Spider | Designed with VS-Code by Abdo
+  </footer>
+</body>
+</html>

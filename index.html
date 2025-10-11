@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cyber-Spider</title>
+  <link rel="icon" type="image/png" href="Icons/tarantula.png">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+* {
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+body {
+  font-family: "Cairo", Tahoma, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(180deg, #030b25, #00185a);
+  color: #fff;
+  overflow-x: hidden;
+}
+
+.fixed-img {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  width: 60px;
+  height: auto;
+  z-index: 100;
+  transition: transform 0.4s ease;
+}
+.fixed-img:hover {
+  transform: rotate(15deg) scale(1.1);
+}
+
+/* 🔐 أزرار تسجيل الدخول */
+.top-buttons {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  display: flex;
+  gap: 15px;
+  z-index: 101;
+}
+
+.top-buttons a {
+  background: #00b0ff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: "Orbitron", sans-serif;
+  box-shadow: 0 0 15px rgba(0,255,255,0.3);
+  transition: all 0.3s ease;
+}
+.top-buttons a:hover {
+  background: #00e0ff;
+  transform: scale(1.1);
+  box-shadow: 0 0 25px rgba(0,255,255,0.7);
+}
+
+header {
+  background: linear-gradient(135deg, #00b0ff, #0078d7);
+  text-align: center;
+  padding: 60px 20px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+  animation: fadeDown 1s ease forwards;
+}
+header h1 {
+  font-size: 2.7em;
+  margin: 0;
+  font-family: "Orbitron", sans-serif;
+  text-shadow: 0 0 20px #00e0ff;
+}
+header p {
+  font-size: 1.2em;
+  opacity: 0.9;
+}
+
+nav {
+  background: #002b70;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 8px 15px;
+  font-weight: bold;
+  position: relative;
+}
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #00c4ff;
+  transition: width 0.3s ease;
+}
+nav a:hover::after {
+  width: 100%;
+}
+
+.container {
+  width: 90%;
+  max-width: 900px;
+  margin: 50px auto;
+  animation: fadeUp 1s ease forwards;
+}
+
+.post {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 15px;
+  margin-bottom: 35px;
+  box-shadow: 0 5px 20px rgba(0,255,255,0.15);
+  transform: translateY(20px);
+  opacity: 0;
+  animation: cardFade 0.8s ease forwards;
+  border: 1px solid rgba(0,255,255,0.3);
+}
+.post:nth-child(2) { animation-delay: 0.3s; }
+.post:nth-child(3) { animation-delay: 0.6s; }
+
+.post:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 30px rgba(0,255,255,0.5);
+}
+
+.post h2 {
+  color: #00e0ff;
+  font-family: "Orbitron", sans-serif;
+  text-shadow: 0 0 15px #00e0ff;
+}
+.post .date {
+  color: #00c4ff;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+.post p {
+  color: #eee;
+  line-height: 1.8;
+}
+
+.icon-glow {
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+  vertical-align: middle;
+  filter: drop-shadow(0 0 10px #00ffff);
+  animation: pulse 2s infinite;
+}
+
+footer {
+  background: #000;
+  color: #bbb;
+  text-align: center;
+  padding: 25px 10px;
+  margin-top: 60px;
+  font-size: 0.95em;
+}
+footer a {
+  color: #00b0ff;
+  text-decoration: none;
+}
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* أنيمشنات */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes cardFade {
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse {
+  0%, 100% { filter: drop-shadow(0 0 8px #00ffff); }
+  50% { filter: drop-shadow(0 0 20px #00ffff); }
+}
+
+/* ماركي */
+.marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 30px 0;
+  background: rgba(0,0,0,0.3);
+}
+.marquee-track {
+  display: inline-block;
+  animation: move 10s linear infinite alternate;
+}
+.marquee-item {
+  display: inline-block;
+  margin: 0 25px;
+  padding: 12px 25px;
+  background: #0078d7;
+  color: white;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: transform 0.3s, background 0.3s;
+}
+.marquee-item:hover {
+  background: #00b0ff;
+  transform: scale(1.1);
+}
+@keyframes move {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* صور جانبية */
+.side-img {
+  position: absolute;
+  top: 70%;
+  transform: translateY(-50%);
+  width: 230px;
+  opacity: 0.8;
+  z-index: 1;
+  pointer-events: none;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+.side-img.left { left: 5%; }
+.side-img.right { right: 5%; }
+.side-img:hover {
+  transform: translateY(-50%) scale(1.1);
+  opacity: 1;
+  filter: drop-shadow(0 0 20px #00e0ff);
+}
+
+/* ===== responsive: hide side images on small screens ===== */
+@media (max-width: 768px) {
+  header h1 { font-size: 2em; }
+  .container { width: 95%; }
+  .fixed-img { width: 50px; }
+
+  /* force hide the side images on small screens */
+  .side-img {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
+  /* adjust top buttons on small screens */
+  .top-buttons {
+    top: 10px;
+    right: 12px;
+    gap: 8px;
+  }
+  .top-buttons a {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}
+  </style>
+</head>
+
+<body>
+  <!-- صور جانبية -->
+  <img src="Icons/cyber-right.png" alt="Right Spider" class="side-img right">
+  <img src="Icons/cybe-left.png" alt="Left Spider" class="side-img left">
+
+  <img src="Icons/tarantula.png" alt="logo" class="fixed-img">
+
+  <!-- 🔐 أزرار تسجيل الدخول -->
+  <div class="top-buttons">
+    <a href="login.html">تسجيل الدخول</a>
+    <a href="register.html">إنشاء حساب</a>
+  </div>
+
+  <header>
+    <h1>Cyber-Spider</h1>
+    <p>Welcome to Our Cyber Society</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="About me.html">About me</a>
+    <a href="Comunity.html">Comunity</a>
+    <a href="Contacts.html">Contact</a>
+    <a href="The last News.html">The last News</a>
+  </nav>
+
+  <section class="marquee-container">
+    <div class="marquee-track">
+      <div class="marquee-item">🕷️ Cyber Security</div>
+      <div class="marquee-item">💻 Programming</div>
+      <div class="marquee-item">🧠 AI & ML</div>
+      <div class="marquee-item">🌐 Networking</div>
+      <div class="marquee-item">🔒 Ethical Hacking</div>
+      <div class="marquee-item">🎮 Game Dev</div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="post">
+      <h2>🔒 الأمن السيبراني</h2>
+      <p class="date">11 أكتوبر 2025</p>
+      <p>الأمن السيبراني هو الدرع الواقي للعصر الرقمي...</p>
+    </div>
+    <div class="post">
+      <h2>💻 البرمجة وعلوم الحاسوب</h2>
+      <p class="date">10 أكتوبر 2025</p>
+      <p>من Python إلى C++، البرمجة هي لغة المستقبل...</p>
+    </div>
+    <div class="post">
+      <h2>🧠 الذكاء الاصطناعي والتعلم الآلي</h2>
+      <p class="date">9 أكتوبر 2025</p>
+      <p>تعلم الآلة والذكاء الاصطناعي أصبحا أساسًا لكل تقدم رقمي...</p>
+    </div>
+  </div>
+  <footer>
+    <p>Cyber-Spider © 2025 — جميع الحقوق محفوظة</p>
+    <p>🌐 تابعنا عبر <a href="Comunity.html">مجتمعنا</a></p>
+  </footer>
+</body>
+</html>

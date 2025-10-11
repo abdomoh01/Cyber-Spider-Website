@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Last News | Cyber-Spider</title>
+  <link rel="icon" type="image/png" href="Icons/tarantula.png">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+* {
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+body {
+  font-family: "Cairo", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(180deg, #030b25, #00185a);
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* ======= الهيدر ======= */
+header {
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #00b0ff, #0078d7);
+  box-shadow: 0 3px 15px rgba(0,0,0,0.3);
+  animation: fadeDown 1s ease forwards;
+}
+header h1 {
+  font-family: "Orbitron", sans-serif;
+  font-size: 2.5em;
+  text-shadow: 0 0 20px #00e0ff;
+}
+header p {
+  font-size: 1.1em;
+  color: #ccefff;
+  letter-spacing: 1px;
+}
+
+/* ======= شريط الأخبار ======= */
+.news-ticker {
+  background: rgba(0,0,0,0.4);
+  overflow: hidden;
+  white-space: nowrap;
+  border-top: 1px solid #00e0ff55;
+  border-bottom: 1px solid #00e0ff55;
+}
+.news-track {
+  display: inline-block;
+  animation: ticker 12s linear infinite;
+}
+.news-item {
+  display: inline-block;
+  margin: 0 25px;
+  color: #00e0ff;
+  font-weight: bold;
+}
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ======= الأخبار ======= */
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.news-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(0,255,255,0.2);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0,255,255,0.1);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 1s forwards;
+}
+.news-card:nth-child(2) { animation-delay: 0.3s; }
+.news-card:nth-child(3) { animation-delay: 0.6s; }
+
+.news-img {
+  width: 40%;
+  height: 180px;
+  object-fit: cover;
+}
+.news-content {
+  padding: 25px;
+  flex: 1;
+}
+.news-content h2 {
+  color: #00e0ff;
+  font-family: "Orbitron", sans-serif;
+  margin-top: 0;
+  text-shadow: 0 0 10px #00e0ff;
+}
+.news-content p {
+  color: #ddd;
+  line-height: 1.8;
+}
+.news-content .date {
+  color: #00c4ff;
+  font-size: 14px;
+}
+
+/* ======= تفاعل عند المرور ======= */
+.news-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 30px rgba(0,255,255,0.4);
+}
+.news-img:hover {
+  filter: brightness(1.2);
+}
+
+/* ======= فوتر ======= */
+footer {
+  background: #000;
+  text-align: center;
+  padding: 25px;
+  color: #aaa;
+  margin-top: 60px;
+}
+footer a {
+  color: #00b0ff;
+  text-decoration: none;
+}
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* ======= أنيميشن ======= */
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .news-card { flex-direction: column; }
+  .news-img { width: 100%; height: 200px; }
+}
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🕷️ آخر أخبار Cyber-Spider</h1>
+  <p>كن أول من يعرف جديد مجتمعنا التقني</p>
+</header>
+
+<div class="news-ticker">
+  <div class="news-track">
+    <span class="news-item">⚡ اكتشاف ثغرة في نظام Linux Kernel!</span>
+    <span class="news-item">🚀 أداة جديدة لتحليل الشبكات تصدر قريبًا</span>
+    <span class="news-item">🧠 الذكاء الاصطناعي يغير مستقبل الأمن السيبراني</span>
+    <span class="news-item">💻 فريق Cyber-Spider يطلق مشروع مفتوح المصدر جديد</span>
+  </div>
+</div>
+
+<div class="container">
+  <div class="news-card">
+    <img src="Images/hacking-news.jpg" alt="خبر 1" class="news-img">
+    <div class="news-content">
+      <h2>🔒 اكتشاف ثغرة أمنية خطيرة في خوادم Apache</h2>
+      <p class="date">11 أكتوبر 2025</p>
+      <p>تمكن باحثون في Cyber-Spider من اكتشاف ثغرة يمكن أن تسمح بالتحكم الكامل بالخادم عن بُعد. ينصح المطورون بالتحديث الفوري لإصدارات Apache.</p>
+    </div>
+  </div>
+
+  <div class="news-card">
+    <img src="Images/ai-cyber.jpg" alt="خبر 2" class="news-img">
+    <div class="news-content">
+      <h2>🤖 الذكاء الاصطناعي يساعد في كشف الهجمات السيبرانية</h2>
+      <p class="date">10 أكتوبر 2025</p>
+      <p>طور فريق Cyber-Spider خوارزمية جديدة تعتمد على التعلم العميق للتعرف على الأنشطة المشبوهة داخل الشبكات في الوقت الحقيقي.</p>
+    </div>
+  </div>
+
+  <div class="news-card">
+    <img src="Images/network-tools.jpg" alt="خبر 3" class="news-img">
+    <div class="news-content">
+      <h2>🧰 إطلاق أداة SpiderTrace لتحليل الشبكات</h2>
+      <p class="date">9 أكتوبر 2025</p>
+      <p>تم الإعلان عن أداة جديدة مفتوحة المصدر باسم SpiderTrace، مصممة لمساعدة الباحثين في تحليل الترافيك الشبكي وتتبع التهديدات السيبرانية بسهولة.</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>Cyber-Spider © 2025 — جميع الحقوق محفوظة</p>
+  <p><a href="index.html">🔙 العودة إلى الصفحة الرئيسية</a></p>
+</footer>
+
+</body>
+</html>
